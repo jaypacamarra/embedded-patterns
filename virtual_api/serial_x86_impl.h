@@ -5,6 +5,8 @@
 
 struct serial_x86_impl {
 	const struct serial_ops *serial;
+
+	/* additional state or metadata may be defined here */
 };
 
 void serial_impl_init(struct serial_x86_impl *self);

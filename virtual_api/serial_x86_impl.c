@@ -18,6 +18,14 @@
 #define CONTAINER_OF(ptr, type, member)                                        \
   ((type *)((char *)(ptr) - offsetof(type, member)))
 
+/*
+ * This is the fake x86 serial implementation
+ *
+ * Why do we use a double pointer instead of a single pointer as the handle arg?
+ *
+ * It allows the design to pass a reference to the pointer to the 
+ * interface (serial_ops).
+ */
 static int serial_impl_write(const struct serial_ops **handle, const char *data,
                              size_t size) {
   // here we can resolve concrete type in the usual type safe way
